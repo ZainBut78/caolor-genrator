@@ -1,0 +1,84 @@
+<!doctype html>
+<html id="main-html">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body
+    class="bg-slate-50 dark:bg-slate-950 min-h-screen p-4 md:p-10 text-slate-800 dark:text-slate-200 transition-colors duration-300">
+
+    <div class="max-w-6xl mx-auto">
+        <header class="flex justify-between items-center mb-10">
+            <div>
+                <h1 class="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">Color<span
+                        class="text-indigo-600">Studio.</span></h1>
+                <p class="text-slate-500 dark:text-slate-400 text-sm">Generate professional palettes in seconds</p>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" type="button"
+                    class="p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm">
+                    <span class="dark:hidden">🌙</span> <span class="hidden dark:inline">☀️</span> 
+                </button>
+                <div
+                    class="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 shadow-sm">
+                    <input id="color-input" type="color" value="#4f46e5"
+                        class="w-8 h-8 rounded-lg cursor-pointer border-none bg-transparent">
+                    <span class="text-sm font-medium text-slate-600 dark:text-slate-300">Pick Color</span>
+                </div>
+            </div>
+        </header>
+
+        <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-3xl shadow-sm mb-10 grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+            <div>
+                <label class="block text-xs font-bold uppercase text-slate-400 mb-2 tracking-wider">Number of
+                    Colors</label>
+                <input id="num-input" type="number" value="5" min="1" max="10"
+                    class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 dark:text-white rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 outline-none transition">
+            </div>
+
+            <div>
+                <label class="block text-xs font-bold uppercase text-slate-400 mb-2 tracking-wider">Color Format</label>
+                <select id="color-format"
+                    class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 dark:text-white rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 outline-none transition appearance-none">
+                    <option value="hex">HEX (#ffffff)</option>
+                    <option value="rgb">RGB (255, 255, 255)</option>
+                    <option value="rgba">RGBA (255, 255, 255, 1)</option>
+                    <option value="hsl">HSL (0, 0%, 100%)</option>
+                </select>
+            </div>
+
+            <button id="genrate"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95">
+                Generate Palette
+            </button>
+
+            <div class="flex gap-2">
+                <button id="reset"
+                    class="flex-1 bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-semibold py-2.5 rounded-xl transition">
+                    Reset
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6" id="div">
+        </div>
+
+        <footer class="mt-20 py-10 border-t border-slate-200 dark:border-slate-800 text-center">
+            <div
+                class="w-full max-w-4xl mx-auto h-24 bg-slate-100 dark:bg-slate-900 rounded-2xl flex items-center justify-center text-slate-400 text-sm italic border border-dashed border-slate-300 dark:border-slate-700">
+                Advertisement Space (Responsive Banner)
+            </div>
+            <p class="mt-6 text-slate-400 text-sm">© 2026 ColorStudio Pro - Built with Zain Butt</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
