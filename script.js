@@ -1,12 +1,10 @@
-
-
 const colorInput = document.querySelector('#color-input');
 
 const numInput = document.querySelector('#num-input');
 
 const formatColor = document.querySelector('#color-format');
 
-const genrateBtn = document.querySelector('#genrate');
+const genrateBtn = document.querySelector('#generate-1');
 
 const restBtn = document.querySelector('#reset');
 
@@ -15,11 +13,85 @@ const genrateDiv = document.querySelector('#div');
 const themeToggleBtn = document.getElementById('theme-toggle');
 
 const htmlElement = document.getElementById('main-html');
-// new div k liye ek element bna rahy hain jo k loop k ander chly ga
+
+const genrateBtn2 = document.querySelector('#generate-2');
+ 
 
 let num = 5;
 //hexa ko genrate kerny k liye
 const hexa = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F'];
+
+// clor picker 
+
+colorInput.addEventListener('input', () => {
+    const pickedColor = colorInput.value;
+    console.log(hexTovalues(pickedColor));
+    
+    
+    let values = hexTovalues(pickedColor);
+})
+
+
+
+
+let values = hexTovalues('#FF0000');
+values.r
+values.g
+values.b
+
+//hexa to values function bnye gy
+function hexTovalues(hex) {
+    let r = parseInt(hex.slice(1, 3), 16);
+    let g = parseInt(hex.slice(3, 5), 16);
+    let b = parseInt(hex.slice(5, 7), 16);
+    return { r, g, b };
+}
+
+// yaa per cimiler color wala function bnye gy 
+
+function genrateSimilarColor(color, numShades) {
+    const shades = []
+    for (let index = 0; index < numShades; index++) {
+        let newR = Math.min(255, Math.max(0, color.r + Math.floor(Math.random() * 60) - 30));
+        let newG = Math.min(255, Math.max(0, color.g + Math.floor(Math.random() * 60) - 30));
+        let newB = Math.min(255, Math.max(0, color.b + Math.floor(Math.random() * 60) - 30));
+        // rgb ki random value banany k lie 
+
+        let newColor = `rgb(${newR}, ${newG}, ${newB})`;
+
+        shades.push(newColor)
+
+    }
+
+    return shades;
+
+}
+
+// ab genrate palte main ye function daly gy sara
+genrateBtn.addEventListener('click', () => {
+    let num = numInput.value;  
+    let pickedColor = hexTovalues(colorInput.value);  
+    let shades = genrateSimilarColor(pickedColor, num);  
+
+    genrateDiv.innerHTML = '';  
+
+    for (const singleColor of shades) {
+        let newDiv = document.createElement('div');
+
+        const a = `
+            <div class="group bg-white p-3 rounded-2xl border border-slate-100 hover:shadow-xl transition-all duration-300">
+                <div class="w-full h-64 rounded-xl mb-4" style="background-color: ${singleColor};"></div>
+                <div class="px-2 pb-2">
+                    <span class="font-mono font-bold text-slate-800 cursor-pointer"
+                        onclick="copyText('${singleColor}', this)">${singleColor}</span>
+                </div>
+            </div>
+        `;
+
+        newDiv.innerHTML = a;
+        genrateDiv.appendChild(newDiv);
+    }
+})
 
 
 restBtn.addEventListener('click',() => {
@@ -27,7 +99,7 @@ restBtn.addEventListener('click',() => {
 })
 
 
-genrateBtn.addEventListener('click', () => {
+genrateBtn2.addEventListener('click', () => {
     let num = numInput.value;
 
 
@@ -122,27 +194,3 @@ function copyText(text , element) {
 
  
 
-
-
-
-
-
-
-// function hexToRgba(hex) {
-//     let r = parseInt(hex.slice(1, 3), 16);
-//     let g = parseInt(hex.slice(3, 5), 16);
-//     let b = parseInt(hex.slice(5, 7), 16);
-//     return `rgba(${r}, ${g}, ${b}, 1)`;
-// }
-
-// let selectedColor;
-
-// if (formatColor.value === 'hex') {
-//     selectedColor = color;
-// } else if (formatColor.value === 'rgb') {
-//     selectedColor = hexToRgb(color);
-// } else if (formatColor.value === 'rgba') {
-//     selectedColor = hexToRgba(color);
-// } else if (formatColor.value === 'hsl') {
-//     selectedColor = hexToHsl(color);
-// }

@@ -22,7 +22,7 @@
             <div class="flex items-center gap-4">
                 <button id="theme-toggle" type="button"
                     class="p-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl shadow-sm">
-                    <span class="dark:hidden">🌙</span> <span class="hidden dark:inline">☀️</span> 
+                    <span class="dark:hidden">🌙</span> <span class="hidden dark:inline">☀️</span>
                 </button>
                 <div
                     class="flex items-center gap-3 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-1.5 shadow-sm">
@@ -34,7 +34,8 @@
         </header>
 
         <div
-            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-3xl shadow-sm mb-10 grid grid-cols-1 md:grid-cols-4 gap-6 items-end">
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-3xl shadow-sm mb-10 grid grid-cols-1 md:grid-cols-5 gap-4 items-end">
+
             <div>
                 <label class="block text-xs font-bold uppercase text-slate-400 mb-2 tracking-wider">Number of
                     Colors</label>
@@ -53,14 +54,19 @@
                 </select>
             </div>
 
-            <button id="genrate"
-                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95">
+            <button id="generate-1"
+                class="w-full bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95 text-sm">
                 Generate Palette
             </button>
 
-            <div class="flex gap-2">
+            <button id="generate-2"
+                class="w-full bg-indigo-500 hover:bg-indigo-600 text-white px-2 py-2.5 rounded-xl font-semibold shadow-lg shadow-indigo-200 dark:shadow-none transition-all active:scale-95 text-sm">
+                Auto Random
+            </button>
+
+            <div class="flex">
                 <button id="reset"
-                    class="flex-1 bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-semibold py-2.5 rounded-xl transition">
+                    class="w-full bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-slate-800 dark:text-white font-semibold py-2.5 rounded-xl transition text-sm">
                     Reset
                 </button>
             </div>
@@ -78,7 +84,7 @@
         </footer>
     </div>
 
-    <script src="app.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
